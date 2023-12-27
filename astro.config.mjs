@@ -8,8 +8,8 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://ryanmichaelhirst.us",
   integrations: [mdx(), sitemap(), tailwind()],
-  // output: "server",
-  // adapter: node({
-  //   mode: "standalone",
-  // }),
+  output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
 });
