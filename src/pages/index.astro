@@ -1,4 +1,5 @@
 ---
+import { Card } from '@/components/react/Card';
 import BaseHead from '../components/BaseHead.astro';
 import Cube from '../components/react/Cube';
 import MacBook from '../components/react/MacBook';
@@ -35,44 +36,36 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
       </div>
 
       <div class="mb-32">
-        <p class="pl-2 mb-1">Projects</p>
+        <p class="pl-2 mb-4">Projects</p>
         <ol class="list-none space-y-4">
-          <li class="hover:bg-gray-500 py-4 px-2 rounded-lg">
-            <a
+          <li>
+            <Card
+              client:load
+              title="Lyrically"
+              description="A lyric search engine powered by Genius"
               href="https://lyrically.ryanmichaelhirst.us"
-              target="_blank"
-              class="text-white underline">Lyrically</a
-            >
-            <p class="mt-0 text-[#b5b3ad]">
-              A lyric search engine powered by Genius
-            </p>
+            />
           </li>
-
-          <li class="hover:bg-gray-500 py-4 px-2 rounded-lg">
-            <a
+          <li>
+            <Card
+              client:load
+              title="OPTCG API"
+              description="Deck builder and API for the One Piece Trading Card Game"
               href="https://optcg-api.ryanmichaelhirst.us"
-              target="_blank"
-              class="text-white underline">OPTCG API</a
-            >
-            <p class="mt-0 text-[#b5b3ad]">
-              Deck builder and API for the One Piece Trading Card Game
-            </p>
+            />
           </li>
-
-          <li class="hover:bg-gray-500 py-4 px-2 rounded-lg">
-            <a
+          <li>
+            <Card
+              client:load
+              title="Remix railway"
+              description="Boilerplate repo for Remix.js + Railway, used to build this site"
               href="https://github.com/ryanmichaelhirst/remix-railway"
-              target="_blank"
-              class="text-white underline">Remix railway</a
-            >
-            <p class="mt-1.5 text-[#b5b3ad]">
-              Boilerplate for deploying Remix.js with Railway
-            </p>
+            />
           </li>
         </ol>
       </div>
 
-      <p class="pl-2 mb-4">More</p>
+      <p class="pl-2 mb-4">Contact</p>
       <div class="space-y-2 pl-2 text-[#b5b3ad]">
         <p>
           View my work on
