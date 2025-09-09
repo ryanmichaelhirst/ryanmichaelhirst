@@ -1,10 +1,35 @@
 ---
+import BaseHead from '@/components/BaseHead.astro';
 import { Toaster } from '@/components/ui/sonner';
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
-  <body>
-    <slot />
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="min-h-screen bg-gray-950 text-white">
     <Toaster client:load />
+    <header class="container mx-auto max-w-[692px] px-6 py-12">
+      <div>
+        <a href="/" class="inline-block cursor-pointer text-white">
+          RyanMichael Hirst
+        </a>
+        <p class="text-gray-500">Software Engineer</p>
+      </div>
+    </header>
+
+    <main class="container mx-auto max-w-[692px] px-6 py-12">
+      <article>
+        <slot />
+      </article>
+    </main>
   </body>
 </html>

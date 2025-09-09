@@ -6,7 +6,7 @@ export const CodeBlock = (props: { code: string }) => {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(props.code);
-      toast.success('Text copied');
+      toast.success('Copied code');
     } catch (err) {
       toast.error('Failed to copy text');
     }

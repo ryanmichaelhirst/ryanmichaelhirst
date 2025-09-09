@@ -1,117 +1,96 @@
 ---
 import { NavigationCard } from '@/components/react/NavigationCard';
-import BaseHead from '../components/BaseHead.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 // import Cube from '../components/react/Cube';
 // import MacBook from '../components/react/MacBook';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body class="bg-gray-950 text-white">
-    <main class="container mx-auto max-w-[692px] px-6 py-12">
-      <div class="mb-20 pl-2">
-        <div>
-          <a href="/" class="inline-block cursor-pointer text-white">
-            RyanMichael Hirst
-          </a>
-          <p class="text-gray-500">Software Engineer</p>
-        </div>
-        <!-- <div class="flex items-center justify-center -mt-20 -mb-20">
-          <Cube client:load />
-          <MacBook client:load />
-        </div> -->
-      </div>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div class="mb-20 pl-2">
+    <p class="mb-4">Today</p>
+    <p class="text-[#b5b3ad]">
+      I'm a full-stack software engineer with a specialty in Typescript, React,
+      and Node.js. I've helped build products in gov tech, consulting, finance,
+      healthcare, and HR. I am passionate about creating intuitive user
+      interfaces and leveraging AI to boost productivity and eliver smarter
+      application features.
+    </p>
+  </div>
 
-      <div class="mb-20 pl-2">
-        <p class="mb-4">Today</p>
-        <p class="text-[#b5b3ad]">
-          I'm a full-stack software engineer with a specialty in Typescript,
-          React, and Node.js. I’ve helped build products in gov tech,
-          consulting, finance, healthcare, and HR. I am passionate about
-          creating intuitive user interfaces and leveraging AI to boost
-          productivity and eliver smarter application features.
-        </p>
-      </div>
+  <div class="mb-32">
+    <p class="mb-4 pl-2">Projects</p>
+    <ol class="list-none space-y-4">
+      <li>
+        <NavigationCard
+          client:load
+          title="Lyrically"
+          description="A lyric search engine powered by Genius"
+          href="https://lyrically.ryanmichaelhirst.us"
+          target="_blank"
+        />
+      </li>
+      <li>
+        <NavigationCard
+          client:load
+          title="OPTCG API"
+          description="Deck builder and API for the One Piece Trading Card Game"
+          href="https://optcg-api.ryanmichaelhirst.us"
+          target="_blank"
+        />
+      </li>
+      <li>
+        <NavigationCard
+          client:load
+          title="Remix railway"
+          description="Boilerplate repo for Remix.js + Railway, used to build this site"
+          href="https://github.com/ryanmichaelhirst/remix-railway"
+          target="_blank"
+        />
+      </li>
+    </ol>
+  </div>
 
-      <div class="mb-32">
-        <p class="mb-4 pl-2">Projects</p>
-        <ol class="list-none space-y-4">
-          <li>
-            <NavigationCard
-              client:load
-              title="Lyrically"
-              description="A lyric search engine powered by Genius"
-              href="https://lyrically.ryanmichaelhirst.us"
-              target="_blank"
-            />
-          </li>
-          <li>
-            <NavigationCard
-              client:load
-              title="OPTCG API"
-              description="Deck builder and API for the One Piece Trading Card Game"
-              href="https://optcg-api.ryanmichaelhirst.us"
-              target="_blank"
-            />
-          </li>
-          <li>
-            <NavigationCard
-              client:load
-              title="Remix railway"
-              description="Boilerplate repo for Remix.js + Railway, used to build this site"
-              href="https://github.com/ryanmichaelhirst/remix-railway"
-              target="_blank"
-            />
-          </li>
-        </ol>
-      </div>
+  <div class="mb-32">
+    <p class="mb-4 pl-2">Writing</p>
+    <ol class="list-none space-y-4">
+      <li>
+        <NavigationCard
+          client:load
+          title="Feature Card Design"
+          description="Implement a card with infinite vertically scrolling description text"
+          href="/ui/feature-card-design"
+        />
+      </li>
+    </ol>
+  </div>
 
-      <div class="mb-32">
-        <p class="mb-4 pl-2">Writing</p>
-        <ol class="list-none space-y-4">
-          <li>
-            <NavigationCard
-              client:load
-              title="Feature Card Design"
-              description="Implement a card with infinite vertically scrolling description text"
-              href="/ui/feature-card-design"
-            />
-          </li>
-        </ol>
-      </div>
-
-      <p class="mb-4 pl-2">Contact</p>
-      <div class="space-y-2 pl-2 text-[#b5b3ad]">
-        <p>
-          View my work on
-          <a
-            href="https://github.com/ryanmichaelhirst"
-            target="_blank"
-            class="pl-0.5 text-white underline">Github</a
-          >
-        </p>
-        <p>
-          Connect with me on
-          <a
-            href="https://www.linkedin.com/in/ryanmichael-hirst-96914b149/"
-            target="_blank"
-            class="pl-0.5 text-white underline">LinkedIn</a
-          >
-        </p>
-        <p>
-          Follow me on
-          <a
-            href="https://x.com/ryanmichael_h"
-            target="_blank"
-            class="pl-0.5 text-white underline">X</a
-          >
-        </p>
-      </div>
-    </main>
-  </body>
-</html>
+  <p class="mb-4 pl-2">Contact</p>
+  <div class="space-y-2 pl-2 text-[#b5b3ad]">
+    <p>
+      View my work on
+      <a
+        href="https://github.com/ryanmichaelhirst"
+        target="_blank"
+        class="pl-0.5 text-white underline">Github</a
+      >
+    </p>
+    <p>
+      Connect with me on
+      <a
+        href="https://www.linkedin.com/in/ryanmichael-hirst-96914b149/"
+        target="_blank"
+        class="pl-0.5 text-white underline">LinkedIn</a
+      >
+    </p>
+    <p>
+      Follow me on
+      <a
+        href="https://x.com/ryanmichael_h"
+        target="_blank"
+        class="pl-0.5 text-white underline">X</a
+      >
+    </p>
+  </div>
+</BaseLayout>

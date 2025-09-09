@@ -1,12 +1,11 @@
 ---
-import BaseHead from '@/components/BaseHead.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Code } from '@/components/react/Code';
 import { Link } from '@/components/react/Link';
 import IconToPlusCode from '@/components/react/IconToPlus.tsx?raw';
 import { InfiniteVerticalScroll } from '@/components/react/InfiniteVerticalScroll';
 import InfiniteVerticalScrollCode from '@/components/react/InfiniteVerticalScroll.tsx?raw';
 import CardTongueCode from '@/components/ui/card/CardTongue.tsx?raw';
-import { Toaster } from '@/components/ui/sonner';
 import { CardTongueDemo } from './CardTongueDemo';
 import { CodeAccordion } from './CodeAccordion';
 import { GameDevCard } from './GameDevCard';
@@ -16,262 +15,237 @@ import { IconToPlusDemo } from './IconToPlusDemo';
 import { PixelArtCard } from './PixelArtCard';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead
-      title="Feature Card Design"
-      description="A feature card design with infinite scrolling text, inspired by Lattice"
-    />
-  </head>
-  <body class="min-h-screen bg-gray-950 text-white">
-    <Toaster client:load />
-    <main class="container mx-auto max-w-[692px] px-6 py-12">
-      <div class="mb-20 pl-2">
-        <div>
-          <a href="/" class="inline-block cursor-pointer text-white">
-            RyanMichael Hirst
-          </a>
-          <p class="text-gray-500">Software Engineer</p>
-        </div>
+<BaseLayout
+  title="Feature Card Design"
+  description="A feature card design with infinite scrolling text, inspired by Lattice"
+>
+  <section class="mb-20">
+    <Link client:load id="intro">Feature Card Design</Link>
+    <p class="mb-10">
+      <a target="_blank" href="https://motion.dev/" class="underline">Motion</a>
+      has made web animation easier than ever. Animations are integral to modern
+      web design, driving attention and elevating UI/UX.
+    </p>
+  </section>
+
+  <section id="what-we-are-building" class="mb-40">
+    <Link client:load id="what-we-are-building">What we're building</Link>
+    <p class="mb-4 italic">Hover to animate</p>
+    <p class="mb-4">
+      Find the source code
+      <a
+        target="_blank"
+        href="https://github.com/ryanmichaelhirst/ryanmichaelhirst/blob/main/src/pages/ui/PixelArtCard.tsx"
+        class="cursor-pointer underline transition-colors hover:text-blue-400"
+      >
+        here</a
+      >
+    </p>
+    <div class="mb-18 flex flex-col items-stretch gap-20 md:flex-row md:gap-6">
+      <div class="flex-1">
+        <PixelArtCard client:load />
       </div>
+      <div class="flex-1">
+        <GameDevCard client:load />
+      </div>
+    </div>
 
-      <section class="mb-20">
-        <Link client:load id="intro">Feature Card Design</Link>
-        <p class="mb-10">
-          <a target="_blank" href="https://motion.dev/" class="underline"
-            >Motion</a
-          > has made web animation easier than ever. Animations are integral to modern
-          web design, driving attention and elevating UI/UX.
-        </p>
-      </section>
-
-      <section id="what-we-are-building" class="mb-40">
-        <Link client:load id="what-we-are-building">What we're building</Link>
-        <p class="mb-4 italic">Hover to animate</p>
-        <p class="mb-4">
-          Find the source code
-          <a
-            target="_blank"
-            href="https://github.com/ryanmichaelhirst/ryanmichaelhirst/blob/main/src/pages/ui/PixelArtCard.tsx"
-            class="cursor-pointer underline transition-colors hover:text-blue-400"
-          >
-            here</a
-          >
-        </p>
-        <div
-          class="mb-18 flex flex-col items-stretch gap-20 md:flex-row md:gap-6"
+    <p class="mb-4">
+      The following design is inspired by <a
+        target="_blank"
+        href="https://lattice.com/#suite-talent"
+        class="underline">Lattice</a
+      >. It showcases a feature callout section consisting of 4 elements:
+    </p>
+    <ul class="ml-6 list-inside list-disc">
+      <li>
+        <a
+          href="#infinite-vertical-scrolling"
+          class="cursor-pointer transition-colors hover:text-blue-400"
+          >Infinite Vertical Scrolling Text</a
         >
-          <div class="flex-1">
-            <PixelArtCard client:load />
-          </div>
-          <div class="flex-1">
-            <GameDevCard client:load />
-          </div>
-        </div>
-
-        <p class="mb-4">
-          The following design is inspired by <a
-            target="_blank"
-            href="https://lattice.com/#suite-talent"
-            class="underline">Lattice</a
-          >. It showcases a feature callout section consisting of 4 elements:
-        </p>
-        <ul class="ml-6 list-inside list-disc">
-          <li>
-            <a
-              href="#infinite-vertical-scrolling"
-              class="cursor-pointer transition-colors hover:text-blue-400"
-              >Infinite Vertical Scrolling Text</a
-            >
-          </li>
-          <li>
-            <a
-              href="#path-morphing"
-              class="cursor-pointer transition-colors hover:text-blue-400"
-              >Animated Path Transition (Plus → Arrow)</a
-            >
-          </li>
-          <li>
-            <a
-              href="#animated-tongue"
-              class="cursor-pointer transition-colors hover:text-blue-400"
-              >Animated Tongue CTA</a
-            >
-          </li>
-          <li>
-            <a
-              href="#group-hover-animation"
-              class="cursor-pointer transition-colors hover:text-blue-400"
-              >Synchronized Animation on Hover</a
-            >
-          </li>
-        </ul>
-
-        <p class="mt-10">
-          With Motion, Tailwind, and Shadcn, these are quick to implement. Let's
-          start with the foundation: an infinitely vertical scrolling text.
-        </p>
-      </section>
-
-      <section class="mb-40">
-        <Link id="infinite-vertical-scrolling" client:load>
-          1. Infinite Vertical Scrolling Text
-        </Link>
-        <p class="mb-5">
-          Duplicate the text, then animate <Code>translateY</Code> on <Code
-            >motion.div</Code
-          > for an infinite scroll effect.
-        </p>
-        <p class="mb-14">
-          Using GPU-friendly transforms (<Code>transform-gpu</Code>, <Code
-            >will-change</Code
-          >, <Code>backfaceVisibility</Code>) ensures smooth performance, while
-          the gradient overlays fade the top and bottom edges.
-        </p>
-
-        <CodeAccordion
-          client:load
-          title="InfiniteVerticalScroll.tsx"
-          language="jsx"
-          code={InfiniteVerticalScrollCode}
-          classes={{
-            container: 'w-fit mb-10',
-          }}
-        />
-        <div class="h-40 overflow-hidden">
-          <InfiniteVerticalScroll
-            client:load
-            text={[
-              'Animated Sprites',
-              'Custom Character Design',
-              'Portraits & Avatars',
-              'Environments & Backgrounds',
-              'Logo & Branding',
-              'Game Assets',
-              'Tile Sets',
-            ]}
-            classes={{
-              icon: 'text-fuchsia-600',
-            }}
-          />
-        </div>
-      </section>
-
-      <section class="mb-40">
-        <Link id="path-morphing" client:load>
-          2. Animated Path Transition (Plus → Arrow)
-        </Link>
-        <p class="mb-5">
-          This part is tricky because the full SVG path for the plus and arrow
-          icons includes movement coordinates. This means using <Code
-            >flubber</Code
-          >
-          can’t animate it smoothly, and you’ll notice flickering at the end of the
-          animation if you use the full SVG path. To fix this, we split the plus
-          and arrow into path segments so each segment can transition cleanly.
-        </p>
-        <p class="mb-14">
-          When <Code>isHovered</Code> changes, we swap between the two path sets,
-          and each <Code>motion.path</Code> animates its <Code>d</Code> attribute
-          for a smooth transition.
-        </p>
-
-        <CodeAccordion
-          code={IconToPlusCode}
-          client:load
-          title="IconToPlus.tsx"
-          language="jsx"
-          classes={{
-            container: 'w-fit mb-6',
-          }}
-        />
-        <div class="h-24 overflow-hidden">
-          <IconToPlusDemo client:load />
-        </div>
-      </section>
-
-      <section class="mb-40">
-        <Link id="animated-tongue" client:load>3. Animated Tongue CTA</Link>
-        <p class="mb-5">
-          Sliding elements up and down is straightforward in Motion. Using <Code
-            >AnimatePresence</Code
-          > and <Code>motion.dev</Code> we create the slide effect by animating the
-          position, opacity, and scale.
-        </p>
-        <p class="mb-5">
-          This animation makes the panel move down and fade in when <Code
-            >isHovered</Code
-          > is true, and move up and fade out when <Code>isHovered</Code> is false.
-        </p>
-
-        <CodeAccordion
-          code={CardTongueCode}
-          client:load
-          title="CardTongueDemo.tsx"
-          language="jsx"
-          classes={{
-            container: 'w-fit mb-6',
-          }}
-        />
-        <div class="h-40 overflow-hidden">
-          <CardTongueDemo client:load />
-        </div>
-      </section>
-
-      <section id="group-hover-animation" class="mb-40">
-        <Link id="animated-tongue" client:load
-          >4. Synchronized Animation on Hover</Link
+      </li>
+      <li>
+        <a
+          href="#path-morphing"
+          class="cursor-pointer transition-colors hover:text-blue-400"
+          >Animated Path Transition (Plus → Arrow)</a
         >
+      </li>
+      <li>
+        <a
+          href="#animated-tongue"
+          class="cursor-pointer transition-colors hover:text-blue-400"
+          >Animated Tongue CTA</a
+        >
+      </li>
+      <li>
+        <a
+          href="#group-hover-animation"
+          class="cursor-pointer transition-colors hover:text-blue-400"
+          >Synchronized Animation on Hover</a
+        >
+      </li>
+    </ul>
 
-        <p class="mb-5">
-          Putting it all together just requires some shared <Code
-            >isHovered</Code
-          > state in a parent component. The <Code>CardContainer</Code> passes the
-          state to <Code>IconToPlus</Code> and <Code>CardTongue</Code> so they animate
-          together.
-        </p>
-        <p class="mb-5">
-          When hovered, the icon morphs from a plus into an arrow and a sliding
-          “tongue” panel appears beneath the card.
-        </p>
+    <p class="mt-10">
+      With Motion, Tailwind, and Shadcn, these are quick to implement. Let's
+      start with the foundation: an infinitely vertical scrolling text.
+    </p>
+  </section>
 
-        <CodeAccordion
-          code={HoverGroupDemoCode}
-          client:load
-          title="HoverGroupDemo.tsx"
-          language="jsx"
-          classes={{
-            container: 'w-fit mb-4',
-          }}
-        />
-        <HoverGroupDemo client:load />
-      </section>
-    </main>
+  <section class="mb-40">
+    <Link id="infinite-vertical-scrolling" client:load>
+      1. Infinite Vertical Scrolling Text
+    </Link>
+    <p class="mb-5">
+      Duplicate the text, then animate <Code>translateY</Code> on <Code
+        >motion.div</Code
+      > for an infinite scroll effect.
+    </p>
+    <p class="mb-14">
+      Using GPU-friendly transforms (<Code>transform-gpu</Code>, <Code
+        >will-change</Code
+      >, <Code>backfaceVisibility</Code>) ensures smooth performance, while the
+      gradient overlays fade the top and bottom edges.
+    </p>
 
-    <script>
-      // Handle smooth scrolling for anchor links
-      document.addEventListener('DOMContentLoaded', function () {
-        const links = document.querySelectorAll('a[href^="#"]');
+    <CodeAccordion
+      client:load
+      title="InfiniteVerticalScroll.tsx"
+      language="jsx"
+      code={InfiniteVerticalScrollCode}
+      classes={{
+        container: 'w-fit mb-10',
+      }}
+    />
+    <div class="h-40 overflow-hidden">
+      <InfiniteVerticalScroll
+        client:load
+        text={[
+          'Animated Sprites',
+          'Custom Character Design',
+          'Portraits & Avatars',
+          'Environments & Backgrounds',
+          'Logo & Branding',
+          'Game Assets',
+          'Tile Sets',
+        ]}
+        classes={{
+          icon: 'text-fuchsia-600',
+        }}
+      />
+    </div>
+  </section>
 
-        links.forEach((link) => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
+  <section class="mb-40">
+    <Link id="path-morphing" client:load>
+      2. Animated Path Transition (Plus → Arrow)
+    </Link>
+    <p class="mb-5">
+      This part is tricky because the full SVG path for the plus and arrow icons
+      includes movement coordinates. This means using <Code>flubber</Code>
+      can't animate it smoothly, and you'll notice flickering at the end of the animation
+      if you use the full SVG path. To fix this, we split the plus and arrow into
+      path segments so each segment can transition cleanly.
+    </p>
+    <p class="mb-14">
+      When <Code>isHovered</Code> changes, we swap between the two path sets, and
+      each <Code>motion.path</Code> animates its <Code>d</Code> attribute for a smooth
+      transition.
+    </p>
 
-            const targetId = link.getAttribute('href')?.substring(1);
-            if (targetId) {
-              const targetElement = document.getElementById(targetId);
+    <CodeAccordion
+      code={IconToPlusCode}
+      client:load
+      title="IconToPlus.tsx"
+      language="jsx"
+      classes={{
+        container: 'w-fit mb-6',
+      }}
+    />
+    <div class="h-24 overflow-hidden">
+      <IconToPlusDemo client:load />
+    </div>
+  </section>
 
-              if (targetElement) {
-                targetElement.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start',
-                });
-              }
-            }
-          });
-        });
+  <section class="mb-40">
+    <Link id="animated-tongue" client:load>3. Animated Tongue CTA</Link>
+    <p class="mb-5">
+      Sliding elements up and down is straightforward in Motion. Using <Code
+        >AnimatePresence</Code
+      > and <Code>motion.dev</Code> we create the slide effect by animating the position,
+      opacity, and scale.
+    </p>
+    <p class="mb-5">
+      This animation makes the panel move down and fade in when <Code
+        >isHovered</Code
+      > is true, and move up and fade out when <Code>isHovered</Code> is false.
+    </p>
+
+    <CodeAccordion
+      code={CardTongueCode}
+      client:load
+      title="CardTongueDemo.tsx"
+      language="jsx"
+      classes={{
+        container: 'w-fit mb-6',
+      }}
+    />
+    <div class="h-40 overflow-hidden">
+      <CardTongueDemo client:load />
+    </div>
+  </section>
+
+  <section id="group-hover-animation" class="mb-40">
+    <Link id="animated-tongue" client:load
+      >4. Synchronized Animation on Hover</Link
+    >
+
+    <p class="mb-5">
+      Putting it all together just requires some shared <Code>isHovered</Code>
+      state in a parent component. The <Code>CardContainer</Code> passes the state
+      to <Code>IconToPlus</Code> and <Code>CardTongue</Code> so they animate together.
+    </p>
+    <p class="mb-5">
+      When hovered, the icon morphs from a plus into an arrow and a sliding
+      "tongue" panel appears beneath the card.
+    </p>
+
+    <CodeAccordion
+      code={HoverGroupDemoCode}
+      client:load
+      title="HoverGroupDemo.tsx"
+      language="jsx"
+      classes={{
+        container: 'w-fit mb-4',
+      }}
+    />
+    <HoverGroupDemo client:load />
+  </section>
+</BaseLayout>
+
+<script>
+  // Handle smooth scrolling for anchor links
+  document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute('href')?.substring(1);
+        if (targetId) {
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        }
       });
-    </script>
-  </body>
-</html>
+    });
+  });
+</script>
