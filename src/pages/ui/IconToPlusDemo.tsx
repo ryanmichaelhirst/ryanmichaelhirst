@@ -8,7 +8,7 @@ export function IconToPlusDemo() {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="w-24 h-24 text-white rounded-full bg-fuchsia-500"
+      className="h-24 w-24 rounded-full bg-fuchsia-500 text-white"
     >
       <IconToPlus isHovered={isHovered} />
     </div>

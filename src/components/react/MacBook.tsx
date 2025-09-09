@@ -191,5 +191,5 @@ export default function MacBook() {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-96 h-96" />;
+  return <div ref={mountRef} className="h-96 w-96" />;
 }

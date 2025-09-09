@@ -8,7 +8,7 @@ export function CardTongueDemo() {
 
   return (
     <div
-      className="relative w-40 bg-fuchsia-500 p-4 rounded text-white cursor-pointer hover:text-gray-300 transition-colors"
+      className="relative w-40 cursor-pointer rounded bg-fuchsia-500 p-4 text-white transition-colors hover:text-gray-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

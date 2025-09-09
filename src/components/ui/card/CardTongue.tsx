@@ -43,8 +43,8 @@ export function CardTongue({
             scale: { duration: animationDuration * 1.2 },
           }}
           className={cn(
-            'absolute top-full left-0 right-0 -z-10 -mt-2',
-            'px-4 pt-6 pb-5 rounded-b-lg shadow-lg border border-primary',
+            'absolute top-full right-0 left-0 -z-10 -mt-2',
+            'border-primary rounded-b-lg border px-4 pt-6 pb-5 shadow-lg',
             'transform-gpu will-change-transform',
             className,
           )}
