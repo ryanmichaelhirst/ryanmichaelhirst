@@ -1,4 +1,4 @@
-'use client'; // if in Next.js, not needed in Remix
+'use client';
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 

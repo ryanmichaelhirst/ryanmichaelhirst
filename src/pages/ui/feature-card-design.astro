@@ -1,0 +1,147 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import IconToPlusCode from '@/components/react/IconToPlus.tsx?raw';
+import { VerticalTextCycle } from '@/components/react/VerticalTextCycle';
+import VerticalTextCode from '@/components/react/VerticalTextCycle.tsx?raw';
+import { Toaster } from '@/components/ui/sonner';
+import { CardTongueDemo } from './CardTongueDemo';
+import CardTongueDemoCode from './CardTongueDemo.tsx?raw';
+import { CodeAccordion } from './CodeAccordion';
+import { GameDevCard } from './GameDevCard';
+import { HoverGroupDemo } from './HoverGroupDemo';
+import { IconToPlusDemo } from './IconToPlusDemo';
+import { PixelArtCard } from './PixelArtCard';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Feature Card Design"
+      description="A feature card design with infinite scrolling text, inspired by Lattice"
+    />
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen">
+    <Toaster client:load />
+    <main class="container mx-auto max-w-[692px] px-6 py-12">
+      <div class="pl-2 mb-20">
+        <div>
+          <a href="/" class="inline-block text-white cursor-pointer">
+            RyanMichael Hirst
+          </a>
+          <p class="text-gray-500">Software Engineer</p>
+        </div>
+      </div>
+
+      <section class="mb-20">
+        <p class="mb-10">
+          <a href="https://motion.dev/" class="underline">Motion</a> has made web
+          animation easier than ever. Modern websites use animation to draw attention
+          and make features stand out.
+        </p>
+        <p class="mb-4">
+          The following design is inspired by <a
+            href="https://lattice.com/#suite-talent"
+            class="underline">Lattice</a
+          >. It showcases a feature callout section consisting of 4 elements:
+        </p>
+        <ul class="list-disc list-inside">
+          <li>Infinite vertical scrolling text</li>
+          <li>Plus → arrow icon morph</li>
+          <li>Sliding “tongue” CTA panel</li>
+          <li>Hover-triggered animations</li>
+        </ul>
+        <p class="my-10">
+          With Motion, Tailwind, and Shadcn, these are quick to implement.
+        </p>
+      </section>
+
+      <p class="mb-5 font-medium text-lg">What we're building</p>
+      <div class="flex gap-6 items-stretch mb-40">
+        <div class="flex-1">
+          <PixelArtCard client:load />
+        </div>
+        <div class="flex-1">
+          <GameDevCard client:load />
+        </div>
+      </div>
+
+      <p class="mb-10">
+        Let's start with the foundation: an infinitely scrolling text list.
+      </p>
+
+      <div class="mb-40">
+        <p class="mb-5 font-medium text-lg">
+          1. Infinite Vertical Scrolling Text
+        </p>
+        <p class="mb-5">
+          We're going to move the list upward along the Y-axis for a full scroll
+          cycle.
+        </p>
+        <p class="mb-5">
+          The animation runs at a constant speed, adjusts based on list length,
+          and loops infinitely.
+        </p>
+        <CodeAccordion codeBlock={VerticalTextCode} client:load />
+        <div class="h-40 overflow-hidden">
+          <VerticalTextCycle
+            client:load
+            text={[
+              'Animated Sprites',
+              'Custom Character Design',
+              'Portraits & Avatars',
+              'Environments & Backgrounds',
+              'Logo & Branding',
+              'Game Assets',
+              'Tile Sets',
+            ]}
+            classes={{
+              icon: 'text-fuchsia-600',
+            }}
+          />
+        </div>
+      </div>
+
+      <div class="mb-40">
+        <p class="mb-5 font-medium text-lg">
+          2. Animated Path Transition (Plus → Arrow)
+        </p>
+        <p class="'mb-5">
+          This morphs an SVG between a plus and arrow when isHovered changes. It
+          maps over two sets of paths and animates each d attribute for each
+          motion.path tag.
+        </p>
+        <CodeAccordion codeBlock={IconToPlusCode} client:load />
+        <div class="h-40 overflow-hidden">
+          <IconToPlusDemo client:load />
+        </div>
+      </div>
+
+      <div class="mb-40">
+        <p class="mb-5 font-medium text-lg">3. Animated Tongue CTA</p>
+        <p class="mb-5">
+          A panel ("tongue") slides out beneath the card on hover. Motion
+          handles opacity, position, and scale for a smooth reveal and hides it
+          again when hover ends.
+        </p>
+        <CodeAccordion codeBlock={CardTongueDemoCode} client:load />
+        <div class="h-40 overflow-hidden">
+          <CardTongueDemo client:load />
+        </div>
+      </div>
+
+      <div class="mb-40">
+        <p class="mb-5 font-medium text-lg">4. Hover-Triggered Animations</p>
+        <p class="mb-5">
+          Hover state is shared via a render-prop pattern in CardContainer.
+          Instead of static children, you pass a function that receives an
+          isHovered arg. Child components then animate based on that value.
+        </p>
+        <CodeAccordion codeBlock={IconToPlusCode} client:load />
+        <div>
+          <HoverGroupDemo client:load />
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

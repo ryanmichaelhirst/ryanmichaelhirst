@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
@@ -6,13 +8,20 @@ type CardProps = {
   description: string;
   href: string;
   className?: string;
+  target?: React.HTMLAttributeAnchorTarget | undefined;
 };
 
-export function Card({ title, description, href, className }: CardProps) {
+export function Card({
+  title,
+  description,
+  href,
+  className,
+  target,
+}: CardProps) {
   return (
     <motion.a
       href={href}
-      target="_blank"
+      target={target}
       rel="noopener noreferrer"
       initial={{ y: 0, scale: 1 }}
       whileHover={{ y: -2, scale: 1.03 }}

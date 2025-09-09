@@ -1,6 +1,7 @@
 ---
 import { Card } from '@/components/react/Card';
 import BaseHead from '../components/BaseHead.astro';
+import '../styles/global.css';
 // import Cube from '../components/react/Cube';
 // import MacBook from '../components/react/MacBook';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
@@ -11,8 +12,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-gray-950 text-white my-10">
-    <main class="'text-white">
+  <body class="bg-gray-950 text-white">
+    <main class="container mx-auto max-w-[692px] px-6 py-12">
       <div class="pl-2 mb-20">
         <div>
           <a href="/" class="inline-block text-white cursor-pointer">
@@ -46,6 +47,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
               title="Lyrically"
               description="A lyric search engine powered by Genius"
               href="https://lyrically.ryanmichaelhirst.us"
+              target="_blank"
             />
           </li>
           <li>
@@ -54,6 +56,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
               title="OPTCG API"
               description="Deck builder and API for the One Piece Trading Card Game"
               href="https://optcg-api.ryanmichaelhirst.us"
+              target="_blank"
             />
           </li>
           <li>
@@ -62,6 +65,21 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
               title="Remix railway"
               description="Boilerplate repo for Remix.js + Railway, used to build this site"
               href="https://github.com/ryanmichaelhirst/remix-railway"
+              target="_blank"
+            />
+          </li>
+        </ol>
+      </div>
+
+      <div class="mb-32">
+        <p class="pl-2 mb-4">Writing</p>
+        <ol class="list-none space-y-4">
+          <li>
+            <Card
+              client:load
+              title="Feature Card Design"
+              description="Implement a card with infinite vertically scrolling description text"
+              href="/ui/feature-card-design"
             />
           </li>
         </ol>
