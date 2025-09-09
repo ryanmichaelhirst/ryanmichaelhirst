@@ -1,5 +1,3 @@
-'use client';
-
 import { CardTongue } from '@/components/ui/card/CardTongue';
 import { useState } from 'react';
 

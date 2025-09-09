@@ -1,5 +1,3 @@
-'use client';
-
 import { interpolate } from 'flubber';
 import { animate, motion, useMotionValue, useTransform } from 'motion/react';
 import { useCallback } from 'react';
@@ -12,7 +10,7 @@ const VERTICAL_PATH_SHORT = 'M12 8v8'; // Short vertical line for arrow
 const HORIZONTAL_PATH = 'M5 12h14';
 const ARROW_HEAD_PATH = 'M19 12L13 8L13 16L19 12';
 
-export function WrongWay() {
+export function PathMorph() {
   const progress = useMotionValue(0);
 
   // Vertical line rotates 90 degrees AND shrinks

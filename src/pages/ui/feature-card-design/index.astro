@@ -123,18 +123,21 @@ import { PixelArtCard } from './PixelArtCard';
             >motion.div</Code
           > for an infinite scroll effect.
         </p>
-        <p class="mb-5">
+        <p class="mb-14">
           Using GPU-friendly transforms (<Code>transform-gpu</Code>, <Code
             >will-change</Code
           >, <Code>backfaceVisibility</Code>) ensures smooth performance, while
           the gradient overlays fade the top and bottom edges.
         </p>
+
         <CodeAccordion
           client:load
+          title="InfiniteVerticalScroll.tsx"
+          language="jsx"
+          code={InfiniteVerticalScrollCode}
           classes={{
-            accordion: 'mb-2',
+            container: 'w-fit mb-10',
           }}
-          codeBlock={InfiniteVerticalScrollCode}
         />
         <div class="h-40 overflow-hidden">
           <InfiniteVerticalScroll
@@ -168,19 +171,22 @@ import { PixelArtCard } from './PixelArtCard';
           animation if you use the full SVG path. To fix this, we split the plus
           and arrow into path segments so each segment can transition cleanly.
         </p>
-        <p class="mb-5">
+        <p class="mb-14">
           When <Code>isHovered</Code> changes, we swap between the two path sets,
           and each <Code>motion.path</Code> animates its <Code>d</Code> attribute
           for a smooth transition.
         </p>
+
         <CodeAccordion
-          codeBlock={IconToPlusCode}
-          classes={{
-            accordion: 'mb-2',
-          }}
+          code={IconToPlusCode}
           client:load
+          title="IconToPlus.tsx"
+          language="jsx"
+          classes={{
+            container: 'w-fit mb-6',
+          }}
         />
-        <div class="h-40 overflow-hidden">
+        <div class="h-24 overflow-hidden">
           <IconToPlusDemo client:load />
         </div>
       </section>
@@ -198,7 +204,16 @@ import { PixelArtCard } from './PixelArtCard';
             >isHovered</Code
           > is true, and move up and fade out when <Code>isHovered</Code> is false.
         </p>
-        <CodeAccordion codeBlock={CardTongueCode} client:load />
+
+        <CodeAccordion
+          code={CardTongueCode}
+          client:load
+          title="CardTongueDemo.tsx"
+          language="jsx"
+          classes={{
+            container: 'w-fit mb-6',
+          }}
+        />
         <div class="h-40 overflow-hidden">
           <CardTongueDemo client:load />
         </div>
@@ -220,10 +235,17 @@ import { PixelArtCard } from './PixelArtCard';
           When hovered, the icon morphs from a plus into an arrow and a sliding
           “tongue” panel appears beneath the card.
         </p>
-        <CodeAccordion codeBlock={HoverGroupDemoCode} client:load />
-        <div>
-          <HoverGroupDemo client:load />
-        </div>
+
+        <CodeAccordion
+          code={HoverGroupDemoCode}
+          client:load
+          title="HoverGroupDemo.tsx"
+          language="jsx"
+          classes={{
+            container: 'w-fit mb-4',
+          }}
+        />
+        <HoverGroupDemo client:load />
       </section>
     </main>
 

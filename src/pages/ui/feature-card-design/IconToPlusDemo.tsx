@@ -1,5 +1,5 @@
+import { IconToPlus } from '@/components/react/IconToPlus';
 import { useState } from 'react';
-import { IconToPlus } from '../../components/react/IconToPlus';
 
 export function IconToPlusDemo() {
   const [isHovered, setIsHovered] = useState(false);

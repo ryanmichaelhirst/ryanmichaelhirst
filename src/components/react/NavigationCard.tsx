@@ -1,9 +1,7 @@
-'use client';
-
 import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 
-type CardProps = {
+type NavigationCardProps = {
   title: string;
   description: string;
   href: string;
@@ -11,13 +9,13 @@ type CardProps = {
   target?: React.HTMLAttributeAnchorTarget | undefined;
 };
 
-export function Card({
+export function NavigationCard({
   title,
   description,
   href,
   className,
   target,
-}: CardProps) {
+}: NavigationCardProps) {
   return (
     <motion.a
       href={href}

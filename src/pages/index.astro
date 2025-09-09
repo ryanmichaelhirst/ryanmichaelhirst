@@ -1,5 +1,5 @@
 ---
-import { Card } from '@/components/react/Card';
+import { NavigationCard } from '@/components/react/NavigationCard';
 import BaseHead from '../components/BaseHead.astro';
 import '../styles/global.css';
 // import Cube from '../components/react/Cube';
@@ -42,7 +42,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         <p class="mb-4 pl-2">Projects</p>
         <ol class="list-none space-y-4">
           <li>
-            <Card
+            <NavigationCard
               client:load
               title="Lyrically"
               description="A lyric search engine powered by Genius"
@@ -51,7 +51,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             />
           </li>
           <li>
-            <Card
+            <NavigationCard
               client:load
               title="OPTCG API"
               description="Deck builder and API for the One Piece Trading Card Game"
@@ -60,7 +60,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
             />
           </li>
           <li>
-            <Card
+            <NavigationCard
               client:load
               title="Remix railway"
               description="Boilerplate repo for Remix.js + Railway, used to build this site"
@@ -75,7 +75,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
         <p class="mb-4 pl-2">Writing</p>
         <ol class="list-none space-y-4">
           <li>
-            <Card
+            <NavigationCard
               client:load
               title="Feature Card Design"
               description="Implement a card with infinite vertically scrolling description text"

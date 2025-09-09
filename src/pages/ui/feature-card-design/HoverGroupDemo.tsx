@@ -1,5 +1,3 @@
-'use client';
-
 import { IconToPlus } from '@/components/react/IconToPlus';
 import { CardContainer } from '@/components/ui/card/CardContainer';
 import { CardTongue } from '@/components/ui/card/CardTongue';
@@ -11,7 +9,9 @@ export function HoverGroupDemo() {
         <>
           <div className="flex h-full flex-col justify-between rounded-lg border border-gray-700 bg-gray-800 p-4">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-sm font-medium text-white">Demo</h3>
+              <h3 className="text-sm font-medium text-white">
+                Putting it All Together
+              </h3>
               <div className="h-6 w-6 rounded-full bg-fuchsia-500 text-white">
                 <IconToPlus isHovered={isHovered} />
               </div>

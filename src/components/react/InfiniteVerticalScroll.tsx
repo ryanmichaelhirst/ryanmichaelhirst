@@ -1,5 +1,3 @@
-'use client';
-
 import { cn } from '@/lib/utils';
 import { CircleCheck } from 'lucide-react';
 import { motion } from 'motion/react';
