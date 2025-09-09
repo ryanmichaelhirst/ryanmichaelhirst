@@ -1,14 +1,15 @@
 ---
 import BaseHead from '@/components/BaseHead.astro';
 import IconToPlusCode from '@/components/react/IconToPlus.tsx?raw';
-import { VerticalTextCycle } from '@/components/react/VerticalTextCycle';
-import VerticalTextCode from '@/components/react/VerticalTextCycle.tsx?raw';
+import { InfiniteVerticalScroll } from '@/components/react/InfiniteVerticalScroll';
+import InfiniteVerticalScrollCode from '@/components/react/InfiniteVerticalScroll.tsx?raw';
+import CardTongueCode from '@/components/ui/card/CardTongue.tsx?raw';
 import { Toaster } from '@/components/ui/sonner';
 import { CardTongueDemo } from './CardTongueDemo';
-import CardTongueDemoCode from './CardTongueDemo.tsx?raw';
 import { CodeAccordion } from './CodeAccordion';
 import { GameDevCard } from './GameDevCard';
 import { HoverGroupDemo } from './HoverGroupDemo';
+import HoverGroupDemoCode from './HoverGroupDemo.tsx?raw';
 import { IconToPlusDemo } from './IconToPlusDemo';
 import { PixelArtCard } from './PixelArtCard';
 ---
@@ -33,12 +34,25 @@ import { PixelArtCard } from './PixelArtCard';
         </div>
       </div>
 
-      <section class="mb-20">
+      <section id="intro" class="mb-40">
         <p class="mb-10">
-          <a href="https://motion.dev/" class="underline">Motion</a> has made web
-          animation easier than ever. Modern websites use animation to draw attention
-          and make features stand out.
+          <a target="_blank" href="https://motion.dev/" class="underline"
+            >Motion</a
+          > has made web animation easier than ever. Modern websites use animation
+          to draw attention and make features stand out.
         </p>
+      </section>
+
+      <section id="what-we-are-building" class="mb-40">
+        <p class="mb-5 font-medium text-lg">What we're building</p>
+        <div class="flex gap-6 items-stretch mb-16">
+          <div class="flex-1">
+            <PixelArtCard client:load />
+          </div>
+          <div class="flex-1">
+            <GameDevCard client:load />
+          </div>
+        </div>
         <p class="mb-4">
           The following design is inspired by <a
             href="https://lattice.com/#suite-talent"
@@ -51,26 +65,14 @@ import { PixelArtCard } from './PixelArtCard';
           <li>Sliding “tongue” CTA panel</li>
           <li>Hover-triggered animations</li>
         </ul>
-        <p class="my-10">
-          With Motion, Tailwind, and Shadcn, these are quick to implement.
+
+        <p class="mt-10">
+          With Motion, Tailwind, and Shadcn, these are quick to implement. Let's
+          start with the foundation: an infinitely scrolling text list.
         </p>
       </section>
 
-      <p class="mb-5 font-medium text-lg">What we're building</p>
-      <div class="flex gap-6 items-stretch mb-40">
-        <div class="flex-1">
-          <PixelArtCard client:load />
-        </div>
-        <div class="flex-1">
-          <GameDevCard client:load />
-        </div>
-      </div>
-
-      <p class="mb-10">
-        Let's start with the foundation: an infinitely scrolling text list.
-      </p>
-
-      <div class="mb-40">
+      <section id="infinite-vertical-scrolling" class="mb-40">
         <p class="mb-5 font-medium text-lg">
           1. Infinite Vertical Scrolling Text
         </p>
@@ -82,9 +84,9 @@ import { PixelArtCard } from './PixelArtCard';
           The animation runs at a constant speed, adjusts based on list length,
           and loops infinitely.
         </p>
-        <CodeAccordion codeBlock={VerticalTextCode} client:load />
+        <CodeAccordion codeBlock={InfiniteVerticalScrollCode} client:load />
         <div class="h-40 overflow-hidden">
-          <VerticalTextCycle
+          <InfiniteVerticalScroll
             client:load
             text={[
               'Animated Sprites',
@@ -100,13 +102,13 @@ import { PixelArtCard } from './PixelArtCard';
             }}
           />
         </div>
-      </div>
+      </section>
 
-      <div class="mb-40">
+      <section id="path-morphing" class="mb-40">
         <p class="mb-5 font-medium text-lg">
           2. Animated Path Transition (Plus → Arrow)
         </p>
-        <p class="'mb-5">
+        <p class="mb-5">
           This morphs an SVG between a plus and arrow when isHovered changes. It
           maps over two sets of paths and animates each d attribute for each
           motion.path tag.
@@ -115,33 +117,33 @@ import { PixelArtCard } from './PixelArtCard';
         <div class="h-40 overflow-hidden">
           <IconToPlusDemo client:load />
         </div>
-      </div>
+      </section>
 
-      <div class="mb-40">
+      <section id="animated-tongue" class="mb-40">
         <p class="mb-5 font-medium text-lg">3. Animated Tongue CTA</p>
         <p class="mb-5">
           A panel ("tongue") slides out beneath the card on hover. Motion
           handles opacity, position, and scale for a smooth reveal and hides it
           again when hover ends.
         </p>
-        <CodeAccordion codeBlock={CardTongueDemoCode} client:load />
+        <CodeAccordion codeBlock={CardTongueCode} client:load />
         <div class="h-40 overflow-hidden">
           <CardTongueDemo client:load />
         </div>
-      </div>
+      </section>
 
-      <div class="mb-40">
+      <section id="group-hover-animation" class="mb-40">
         <p class="mb-5 font-medium text-lg">4. Hover-Triggered Animations</p>
         <p class="mb-5">
           Hover state is shared via a render-prop pattern in CardContainer.
           Instead of static children, you pass a function that receives an
           isHovered arg. Child components then animate based on that value.
         </p>
-        <CodeAccordion codeBlock={IconToPlusCode} client:load />
+        <CodeAccordion codeBlock={HoverGroupDemoCode} client:load />
         <div>
           <HoverGroupDemo client:load />
         </div>
-      </div>
+      </section>
     </main>
   </body>
 </html>

@@ -7,15 +7,12 @@ export function CardTongueDemo() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="relative w-40 bg-fuchsia-500 p-4 rounded">
-      <p
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="text-white cursor-pointer hover:text-gray-300 transition-colors"
-      >
-        Hover me!
-      </p>
-
+    <div
+      className="relative w-40 bg-fuchsia-500 p-4 rounded text-white cursor-pointer hover:text-gray-300 transition-colors"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      Hover me!
       <CardTongue isHovered={isHovered}>
         <div className="text-white">Don't mind if I slide in</div>
       </CardTongue>

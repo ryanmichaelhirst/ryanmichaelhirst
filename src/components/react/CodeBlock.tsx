@@ -19,7 +19,7 @@ export const CodeBlock = (props: { codeBlock: string }) => {
         className="absolute top-2 right-2 p-2 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors opacity-0 group-hover:opacity-100 z-10"
         title="Copy code"
       >
-        <Copy className="w-4 h-4" />
+        <Copy className="w-4 h-4 cursor-pointer" />
       </button>
       <Highlight theme={themes.vsDark} code={props.codeBlock} language="tsx">
         {({ className, style, tokens, getLineProps, getTokenProps }) => (

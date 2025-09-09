@@ -1,5 +1,5 @@
 import { IconToPlus } from '@/components/react/IconToPlus';
-import { VerticalTextCycle } from '@/components/react/VerticalTextCycle';
+import { InfiniteVerticalScroll } from '@/components/react/InfiniteVerticalScroll';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CardContainer } from '@/components/ui/card/CardContainer';
 import { CardTongue } from '@/components/ui/card/CardTongue';
@@ -19,7 +19,7 @@ export function GameDevCard() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="h-40 overflow-hidden">
-                <VerticalTextCycle
+                <InfiniteVerticalScroll
                   text={[
                     'Game Mechanics',
                     'Level Design',

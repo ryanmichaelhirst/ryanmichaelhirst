@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { CircleCheck } from 'lucide-react';
 import { motion } from 'motion/react';
 
-type VerticalTextProps = {
+type InfiniteVerticalScrollProps = {
   text: string[];
   /** Pass the exact bg color of the card */
   fadeColor?: string;
@@ -13,11 +13,11 @@ type VerticalTextProps = {
   };
 };
 
-export function VerticalTextCycle({
+export function InfiniteVerticalScroll({
   classes,
   text,
   fadeColor = 'transparent',
-}: VerticalTextProps) {
+}: InfiniteVerticalScrollProps) {
   const row = 32;
   const duplicated = [...text, ...text];
 
