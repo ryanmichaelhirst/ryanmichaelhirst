@@ -21,7 +21,11 @@ export const CodeBlock = (props: { codeBlock: string }) => {
       >
         <Copy className="h-4 w-4" />
       </button>
-      <Highlight theme={themes.vsDark} code={props.codeBlock} language="tsx">
+      <Highlight
+        theme={themes.jettwaveDark}
+        code={props.codeBlock}
+        language="tsx"
+      >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre style={style} className="rounded-lg p-4">
             {tokens.map((line, i) => (
