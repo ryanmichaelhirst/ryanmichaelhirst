@@ -6,23 +6,23 @@ import { CardTongue } from '@/components/ui/card/CardTongue';
 
 export function HoverGroupDemo() {
   return (
-    <CardContainer className="cursor-pointer w-40">
+    <CardContainer className="h-40 w-60 cursor-pointer">
       {({ isHovered }) => (
         <>
-          <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 h-full flex flex-col justify-between">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-white text-sm font-medium">Demo</h3>
-              <div className="w-6 h-6 text-white rounded-full bg-fuchsia-500">
+          <div className="flex h-full flex-col justify-between rounded-lg border border-gray-700 bg-gray-800 p-4">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-sm font-medium text-white">Demo</h3>
+              <div className="h-6 w-6 rounded-full bg-fuchsia-500 text-white">
                 <IconToPlus isHovered={isHovered} />
               </div>
             </div>
-            <p className="text-gray-300 text-xs">
-              Hover to see icon and tongue transition together
+            <p className="text-xs text-gray-300">
+              Hover to see the icon and tongue transition together
             </p>
           </div>
 
           <CardTongue isHovered={isHovered}>
-            <div className="text-white text-sm">Synchronized animation!</div>
+            <div className="text-sm text-white">Synchronized animation!</div>
           </CardTongue>
         </>
       )}

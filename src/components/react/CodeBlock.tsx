@@ -13,13 +13,13 @@ export const CodeBlock = (props: { codeBlock: string }) => {
   };
 
   return (
-    <div className="relative group">
+    <div className="group relative">
       <button
         onClick={handleCopy}
-        className="absolute top-2 right-2 p-2 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors opacity-0 group-hover:opacity-100 z-10"
+        className="absolute top-2 right-2 z-10 cursor-pointer rounded-md bg-gray-800 p-2 text-gray-300 opacity-0 transition-colors group-hover:opacity-100 hover:bg-gray-700 hover:text-white"
         title="Copy code"
       >
-        <Copy className="w-4 h-4 cursor-pointer" />
+        <Copy className="h-4 w-4" />
       </button>
       <Highlight theme={themes.vsDark} code={props.codeBlock} language="tsx">
         {({ className, style, tokens, getLineProps, getTokenProps }) => (

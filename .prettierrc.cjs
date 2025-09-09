@@ -19,7 +19,7 @@ module.exports = {
 
   // Add plugins for Astro support. This is crucial for formatting
   // .astro, .md, and .mdx files correctly.
-  plugins: ['prettier-plugin-astro'],
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
 
   // Overrides to handle specific file types
   overrides: [
@@ -31,4 +31,6 @@ module.exports = {
       },
     },
   ],
+
+  tailwindConfig: './tailwind.config.ts',
 };
