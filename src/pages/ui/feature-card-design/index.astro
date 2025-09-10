@@ -7,7 +7,7 @@ import { InfiniteVerticalScroll } from '@/components/react/InfiniteVerticalScrol
 import InfiniteVerticalScrollCode from '@/components/react/InfiniteVerticalScroll.tsx?raw';
 import CardTongueCode from '@/components/ui/card/CardTongue.tsx?raw';
 import { CardTongueDemo } from './CardTongueDemo';
-import { CodeAccordion } from './CodeAccordion';
+import { CodeAccordion } from '@/components/react/CodeAccordion';
 import { GameDevCard } from './GameDevCard';
 import { HoverGroupDemo } from './HoverGroupDemo';
 import HoverGroupDemoCode from './HoverGroupDemo.tsx?raw';
@@ -21,7 +21,7 @@ import { PixelArtCard } from './PixelArtCard';
 >
   <section class="mb-20">
     <Link client:load id="intro">Feature Card Design</Link>
-    <p class="mb-10">
+    <p class="mt-4 mb-10">
       <a target="_blank" href="https://motion.dev/" class="underline">Motion</a>
       has made web animation easier than ever. Animations are integral to modern
       web design, driving attention and elevating UI/UX.
@@ -30,16 +30,15 @@ import { PixelArtCard } from './PixelArtCard';
 
   <section id="what-we-are-building" class="mb-40">
     <Link client:load id="what-we-are-building">What we're building</Link>
-    <p class="mb-4 italic">Hover to animate</p>
     <p class="mb-4">
-      Find the source code
+      Source code
       <a
         target="_blank"
-        href="https://github.com/ryanmichaelhirst/ryanmichaelhirst/blob/main/src/pages/ui/PixelArtCard.tsx"
+        href="https://github.com/ryanmichaelhirst/ryanmichaelhirst/blob/main/src/pages/ui/feature-card-design/PixelArtCard.tsx"
         class="cursor-pointer underline transition-colors hover:text-blue-400"
       >
         here</a
-      >
+      >.
     </p>
     <div class="mb-18 flex flex-col items-stretch gap-20 md:flex-row md:gap-6">
       <div class="flex-1">

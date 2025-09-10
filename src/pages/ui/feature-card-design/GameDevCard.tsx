@@ -24,7 +24,7 @@ export function GameDevCard(props: GameDevCardProps) {
         <>
           <Card className="h-full border border-neutral-500 bg-blue-200">
             <CardHeader className="flex-row justify-between">
-              <CardTitle>Game dev</CardTitle>
+              <CardTitle>Game Dev</CardTitle>
               <div className="h-6 w-6 rounded-full bg-blue-300 text-white">
                 <IconToPlus isHovered={isHovered} />
               </div>

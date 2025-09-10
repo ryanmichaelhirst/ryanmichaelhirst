@@ -48,7 +48,7 @@ export const Link: React.FC<LinkIconProps> = ({
   };
 
   return (
-    <div className={cn('group mb-1 flex items-center gap-1.5', className)}>
+    <div className={cn('group mb-4 flex items-center gap-1.5', className)}>
       <h2 id={id} className="text-xl font-medium">
         {children}
       </h2>

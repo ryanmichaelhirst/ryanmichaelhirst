@@ -1,8 +1,219 @@
 ---
+import { Code } from '@/components/react/Code';
+import { CodeAccordion } from '@/components/react/CodeAccordion';
+import { Link } from '@/components/react/Link';
+import { LinkUnderline } from '@/components/react/LinkUnderline';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ButtonFillCode from './ButtonFill.tsx?raw';
+import { ButtonFillDemo } from './ButtonFillDemo';
+import { ButtonListCycle } from './ButtonListCycle';
+import ButtonListCycleCode from './ButtonListCycle.tsx?raw';
+import { ContentSlideDemo } from './ContentSlideDemo';
+import ContentSlideCode from './ContentSlide.tsx?raw';
 ---
 
 <BaseLayout
   title="Button Fill Animation"
   description="A button with fill animation effect"
-/>
+>
+  <section class="mb-20">
+    <Link client:load id="intro">Button Fill Animation</Link>
+    <p class="mt-4 mb-10">
+      <a target="_blank" href="https://motion.dev/" class="underline">Motion</a>
+      has made web animation easier than ever. Animations are integral to modern
+      web design, driving attention and elevating UI/UX.
+    </p>
+  </section>
+
+  <section id="what-we-are-building" class="mb-40">
+    <Link client:load id="what-we-are-building">What we're building</Link>
+    <p class="mb-4">
+      Source code
+      <a
+        target="_blank"
+        href="https://github.com/ryanmichaelhirst/ryanmichaelhirst/blob/main/src/pages/ui/button-fill/ButtonListCycle.tsx"
+        class="cursor-pointer underline transition-colors hover:text-blue-400"
+      >
+        here</a
+      >.
+    </p>
+
+    <div class="mb-20">
+      <!-- <ButtonListCycle
+        client:load
+        items={[
+          {
+            label: 'Pixel Art',
+            content: 'Jump start your design process with 2D sprites.',
+          },
+          {
+            label: 'Game Dev',
+            content: 'Implement your next game with Godot.',
+          },
+          {
+            label: 'Integrated AI',
+            content: 'Create context aware chatbots using LLMs.',
+          },
+        ]}
+      /> -->
+    </div>
+
+    <p class="mb-4">
+      The following design is inspired by <a
+        target="_blank"
+        href="https://www.obviant.com"
+        class="underline">Obviant</a
+      >. It showcases a button animation consisting of 3 elements:
+    </p>
+
+    <ul class="ml-6 list-inside list-disc">
+      <li>
+        <LinkUnderline href="#button-fill-animation"
+          >Button Fill Animation</LinkUnderline
+        >
+      </li>
+      <li>
+        <LinkUnderline href="#content-slide-animation"
+          >Content Slide Animation</LinkUnderline
+        >
+      </li>
+      <li>
+        <LinkUnderline href="#button-list-cycle"
+          >Button List Cycle</LinkUnderline
+        >
+      </li>
+    </ul>
+
+    <p class="mt-10">
+      With Motion, Tailwind, and Shadcn, these are quick to implement. Let's
+      start with the foundation: a button fill animation.
+    </p>
+  </section>
+
+  <section class="mb-40">
+    <Link id="button-fill-animation" client:load>
+      1. Button Fill Animation
+    </Link>
+
+    <p class="mb-5">
+      This component renders a button that visually “fills up” with color when
+      active. The <Code>motion.span</Code> inside expands its width from 0 to 100%
+      over a set duration, creating a progress-bar like effect behind the button
+      label.
+    </p>
+    <p class="mb-5">
+      Once the fill animation completes, it can trigger a <Code>onComplete</Code
+      > callback, making it useful for timed actions like auto-progress buttons.
+      The <Code>onClick</Code> callback can be used to restart the animation. We
+      will cover these callbacks in section 3.
+    </p>
+
+    <CodeAccordion
+      client:load
+      title="ButtonFill.tsx"
+      language="jsx"
+      code={ButtonFillCode}
+      classes={{
+        container: 'w-fit mb-10',
+      }}
+    />
+    <div class="h-40 overflow-hidden">
+      <ButtonFillDemo client:load />
+    </div>
+  </section>
+
+  <section class="mb-40">
+    <Link id="content-slide-animation" client:load>
+      2. Content Slide Animation
+    </Link>
+
+    <p class="mb-5">
+      This component has an enter and exit slide animation. The <Code
+        >onAnimationComplete</Code
+      > callback fires when the enter animation completes, giving us a way to know
+      when to start the next animation.
+    </p>
+    <p class="mb-5">
+      <Code>AnimatePresence</Code> with <Code>key=contentKey</Code> ensures that
+      React re-mounts the component and triggers the exit animation.
+    </p>
+
+    <CodeAccordion
+      client:load
+      title="ContentSlide.tsx"
+      language="jsx"
+      code={ContentSlideCode}
+      classes={{
+        container: 'w-fit mb-10',
+      }}
+    />
+    <div class="h-40 overflow-hidden">
+      <ContentSlideDemo client:load />
+    </div>
+  </section>
+
+  <section class="mb-40">
+    <Link id="button-list-cycle" client:load> 3. Button List Cycle </Link>
+
+    <p class="mb-5">
+      The parent uses <Code>activeLabel</Code> state as the React key to trigger
+      the unmount the content and trigger the exit animation.
+    </p>
+    <p class="mb-5">
+      Once the fill animations completes we use <Code>onComplete</Code>
+      to transition to the next animation. We also support starting a manual animation
+      via <Code>onClick</Code>.
+    </p>
+
+    <CodeAccordion
+      client:load
+      title="ButtonListCycle.tsx"
+      language="jsx"
+      code={ButtonListCycleCode}
+      classes={{
+        container: 'w-fit mb-10',
+      }}
+    />
+    <div class="h-40 overflow-hidden">
+      <ButtonListCycle
+        client:load
+        items={[
+          {
+            label: 'Putting it All Together',
+            content:
+              'With a parent component we can cycle through the animation endlessly.',
+          },
+          {
+            label: 'The End',
+            content: 'Thanks for reading, until next time!',
+          },
+        ]}
+      />
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  // Handle smooth scrolling for anchor links
+  document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute('href')?.substring(1);
+        if (targetId) {
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+        }
+      });
+    });
+  });
+</script>
