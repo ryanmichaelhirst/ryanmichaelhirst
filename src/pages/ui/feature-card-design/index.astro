@@ -29,8 +29,10 @@ import { PixelArtCard } from './PixelArtCard';
   </section>
 
   <section id="what-we-are-building" class="mb-40">
-    <Link client:load id="what-we-are-building">What we're building</Link>
-    <p class="mb-4">
+    <Link client:load id="what-we-are-building" className="mb-0"
+      >What we're building</Link
+    >
+    <p class="mb-20 italic">
       Source code
       <a
         target="_blank"
@@ -40,7 +42,7 @@ import { PixelArtCard } from './PixelArtCard';
         here</a
       >.
     </p>
-    <div class="mb-18 flex flex-col items-stretch gap-20 md:flex-row md:gap-6">
+    <div class="mb-40 flex flex-col items-stretch gap-20 md:flex-row md:gap-6">
       <div class="flex-1">
         <PixelArtCard client:load />
       </div>
